@@ -20,176 +20,247 @@
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Plus Jakarta Sans', sans-serif; }
         body { background-color: var(--bg-light); color: var(--text-dark); line-height: 1.6; }
 
-        header { background: rgba(15, 23, 42, 0.95); backdrop-filter: blur(10px); position: fixed; width: 100%; top: 0; z-index: 1000; padding: 18px 8%; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(255,255,255,0.1); }
+        header { background: rgba(15, 23, 42, 0.95); backdrop-filter: blur(10px); position: fixed; width: 100%; top: 0; z-index: 1000; padding: 15px 8%; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(255,255,255,0.1); }
         .logo { font-family: 'Playfair Display', serif; font-size: 26px; font-weight: 700; color: #FFF; letter-spacing: 1px; }
         .logo span { color: var(--accent); }
-        nav a { color: #CBD5E1; text-decoration: none; margin-left: 25px; font-size: 15px; font-weight: 500; transition: 0.3s; }
-        nav a:hover { color: var(--accent); }
         
-        .hero { margin-top: 75px; background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%); color: white; padding: 120px 8% 100px; text-align: center; position: relative; overflow: hidden; }
-        .hero::after { content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: radial-gradient(circle, rgba(217,119,6,0.1) 0%, transparent 60%); pointer-events: none; }
+        nav { display: flex; align-items: center; gap: 20px; }
+        nav a { color: #CBD5E1; text-decoration: none; font-size: 14px; font-weight: 500; transition: 0.3s; }
+        nav a:hover { color: var(--accent); }
+
+        .lang-switch { display: flex; gap: 5px; background: rgba(255,255,255,0.1); padding: 4px; border-radius: 6px; margin-left: 15px; }
+        .lang-btn { background: transparent; border: none; color: #94A3B8; padding: 4px 8px; border-radius: 4px; cursor: pointer; font-size: 12px; font-weight: 700; transition: 0.3s; }
+        .lang-btn.active, .lang-btn:hover { background: var(--accent); color: white; }
+        
+        .hero { margin-top: 70px; background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%); color: white; padding: 110px 8% 90px; text-align: center; position: relative; overflow: hidden; }
         .badge { background: rgba(217,119,6,0.15); color: var(--accent); padding: 6px 16px; border-radius: 20px; font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; display: inline-block; margin-bottom: 20px; border: 1px solid rgba(217,119,6,0.3); }
-        .hero h1 { font-family: 'Playfair Display', serif; font-size: 52px; font-weight: 700; max-width: 900px; margin: 0 auto 20px; line-height: 1.2; }
-        .hero p { font-size: 19px; color: #94A3B8; max-width: 680px; margin: 0 auto 35px; font-weight: 300; }
+        .hero h1 { font-family: 'Playfair Display', serif; font-size: 48px; font-weight: 700; max-width: 900px; margin: 0 auto 20px; line-height: 1.2; }
+        .hero p { font-size: 18px; color: #94A3B8; max-width: 680px; margin: 0 auto 35px; font-weight: 300; }
         
         .cta-btns { display: flex; justify-content: center; gap: 15px; }
         .btn-primary { background: var(--accent); color: white; padding: 14px 32px; text-decoration: none; border-radius: 8px; font-weight: 600; transition: 0.3s; box-shadow: 0 4px 14px rgba(217,119,6,0.3); }
-        .btn-primary:hover { background: #B45309; transform: translateY(-2px); }
+        .btn-primary:hover { background: #B45309; }
         .btn-secondary { background: transparent; color: white; padding: 14px 32px; text-decoration: none; border-radius: 8px; font-weight: 600; border: 1px solid #475569; transition: 0.3s; }
-        .btn-secondary:hover { background: rgba(255,255,255,0.05); }
 
-        .features, .pricing, .certificate, .innovations { padding: 90px 8%; max-width: 1300px; margin: 0 auto; }
-        .section-title { text-align: center; margin-bottom: 60px; }
-        .section-title h2 { font-family: 'Playfair Display', serif; font-size: 36px; color: var(--primary); margin-bottom: 10px; }
-        .section-title p { color: var(--text-muted); font-size: 16px; }
+        .features, .pricing, .certificate, .innovations { padding: 80px 8%; max-width: 1300px; margin: 0 auto; }
+        .section-title { text-align: center; margin-bottom: 50px; }
+        .section-title h2 { font-family: 'Playfair Display', serif; font-size: 34px; color: var(--primary); margin-bottom: 10px; }
+        .section-title p { color: var(--text-muted); font-size: 15px; }
 
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
-        .card { background: var(--card-bg); padding: 40px 30px; border-radius: 12px; border: 1px solid var(--border); transition: 0.3s; position: relative; }
-        .card:hover { transform: translateY(-5px); box-shadow: 0 20px 25px -5px rgba(0,0,0,0.05); border-color: var(--accent); }
-        .card-icon { width: 50px; height: 50px; background: var(--accent-light); color: var(--accent); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 20px; font-weight: bold; margin-bottom: 20px; }
-        .card h3 { font-size: 20px; color: var(--primary); margin-bottom: 12px; }
-        .card p { color: var(--text-muted); font-size: 15px; line-height: 1.7; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
+        .card { background: var(--card-bg); padding: 35px 25px; border-radius: 12px; border: 1px solid var(--border); transition: 0.3s; }
+        .card:hover { transform: translateY(-5px); border-color: var(--accent); }
+        .card-icon { width: 45px; height: 45px; background: var(--accent-light); color: var(--accent); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 18px; font-weight: bold; margin-bottom: 18px; }
+        .card h3 { font-size: 19px; color: var(--primary); margin-bottom: 10px; }
+        .card p { color: var(--text-muted); font-size: 14px; line-height: 1.6; }
 
-        /* Certificate Banner */
-        .cert-box { background: linear-gradient(135deg, #1E293B 0%, #0F172A 100%); color: white; border-radius: 16px; padding: 50px; display: flex; align-items: center; gap: 40px; flex-wrap: wrap; }
-        .cert-content { flex: 1; min-width: 300px; }
-        .cert-content h3 { font-family: 'Playfair Display', serif; font-size: 30px; margin-bottom: 15px; color: #FFF; }
-        .cert-badge { background: var(--accent); color: white; padding: 4px 12px; border-radius: 6px; font-size: 12px; font-weight: 700; text-transform: uppercase; margin-bottom: 15px; display: inline-block; }
+        .cert-box { background: linear-gradient(135deg, #1E293B 0%, #0F172A 100%); color: white; border-radius: 16px; padding: 45px; display: flex; align-items: center; gap: 30px; flex-wrap: wrap; }
+        .cert-content h3 { font-family: 'Playfair Display', serif; font-size: 28px; margin-bottom: 12px; }
+        .cert-badge { background: var(--accent); color: white; padding: 4px 12px; border-radius: 6px; font-size: 11px; font-weight: 700; text-transform: uppercase; margin-bottom: 12px; display: inline-block; }
 
-        /* Pricing Section */
-        .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; max-width: 900px; margin: 0 auto; }
-        .price-card { background: var(--card-bg); border: 2px solid var(--border); border-radius: 16px; padding: 40px 30px; text-align: center; position: relative; transition: 0.3s; }
-        .price-card.featured { border-color: var(--accent); box-shadow: 0 10px 30px rgba(217,119,6,0.15); }
-        .price-tag { font-size: 38px; font-weight: 800; color: var(--primary); margin: 20px 0 10px; }
-        .price-tag span { font-size: 16px; color: var(--text-muted); font-weight: 400; }
-        .price-features { list-style: none; margin: 25px 0; text-align: left; }
-        .price-features li { padding: 10px 0; border-bottom: 1px dashed var(--border); color: var(--text-dark); font-size: 15px; }
+        .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; max-width: 850px; margin: 0 auto; }
+        .price-card { background: var(--card-bg); border: 2px solid var(--border); border-radius: 16px; padding: 35px 25px; text-align: center; }
+        .price-card.featured { border-color: var(--accent); box-shadow: 0 10px 30px rgba(217,119,6,0.12); }
+        .price-tag { font-size: 34px; font-weight: 800; color: var(--primary); margin: 15px 0 5px; }
+        .price-tag span { font-size: 15px; color: var(--text-muted); font-weight: 400; }
+        .price-features { list-style: none; margin: 20px 0; text-align: left; }
+        .price-features li { padding: 8px 0; border-bottom: 1px dashed var(--border); font-size: 14px; }
         .price-features li::before { content: "✓ "; color: var(--accent); font-weight: bold; }
 
-        footer { background: var(--primary); color: #64748B; text-align: center; padding: 30px 8%; border-top: 1px solid rgba(255,255,255,0.05); font-size: 14px; }
+        footer { background: var(--primary); color: #64748B; text-align: center; padding: 25px 8%; font-size: 13px; }
     </style>
 </head>
 <body>
     <header>
         <div class="logo">Academ<span>-X</span></div>
         <nav>
-            <a href="#ekotizim">Ekotizim</a>
-            <a href="#innovatsiyalar">AI va 3D Texnologiyalar</a>
-            <a href="#sertifikat">Sertifikat</a>
-            <a href="#tariflar">Tariflar</a>
+            <a href="#ekotizim" id="nav-eco">Ekotizim</a>
+            <a href="#innovatsiyalar" id="nav-tech">Texnologiyalar</a>
+            <a href="#sertifikat" id="nav-cert">Sertifikat</a>
+            <a href="#tariflar" id="nav-price">Tariflar</a>
+            <div class="lang-switch">
+                <button class="lang-btn active" onclick="setLanguage('uz')">UZ</button>
+                <button class="lang-btn" onclick="setLanguage('ru')">RU</button>
+                <button class="lang-btn" onclick="setLanguage('en')">EN</button>
+            </div>
         </nav>
     </header>
 
     <section class="hero">
-        <div class="badge">Akkreditatsiyalangan Raqamli Tizim</div>
-        <h1>Tarixiy Manbalar va Ilmiy Metodologiya Platformasi</h1>
-        <p>Maktab ta'limidan oliy akademik tadqiqotlargacha bo'lgan davrni qamrab oluvchi, Milliy sertifikatga o'qituvchisiz ham mustaqil tayyorlanish imkonini beruvchi ta'lim ekotizimi.</p>
+        <div class="badge" id="hero-badge">Akkreditatsiyalangan Raqamli Tizim</div>
+        <h1 id="hero-title">Tarixiy Manbalar va Ilmiy Metodologiya Platformasi</h1>
+        <p id="hero-desc">Maktab ta'limidan oliy akademik tadqiqotlargacha bo'lgan davrni qamrab oluvchi, Milliy sertifikatga o'qituvchisiz ham mustaqil tayyorlanish imkonini beruvchi ta'lim ekotizimi.</p>
         <div class="cta-btns">
-            <a href="#tariflar" class="btn-primary">A'zo Bo'lish</a>
-            <a href="#innovatsiyalar" class="btn-secondary">Texnologiyalar</a>
+            <a href="#tariflar" class="btn-primary" id="btn-join">A'zo Bo'lish</a>
+            <a href="#innovatsiyalar" class="btn-secondary" id="btn-tech">Texnologiyalar</a>
         </div>
     </section>
 
     <section class="features" id="ekotizim">
         <div class="section-title">
-            <h2>Ko'p Darajali Ta'lim Ekotizimi</h2>
-            <p>Har bir foydalanuvchi va abituriyent uchun moslashuvchan metodologiya</p>
+            <h2 id="eco-title">Ko'p Darajali Ta'lim Ekotizimi</h2>
+            <p id="eco-sub">Har bir foydalanuvchi va abituriyent uchun moslashuvchan metodologiya</p>
         </div>
-
         <div class="grid">
             <div class="card">
                 <div class="card-icon">01</div>
-                <h3>Abituriyentlar va O'quvchilar</h3>
-                <p>O'qituvchisiz yoki ustoz bilan Milliy sertifikat va imtihonlarga 100% tayyorgarlik. Interaktiv testlar va manbalar bazasi.</p>
+                <h3 id="c1-title">Abituriyentlar va O'quvchilar</h3>
+                <p id="c1-desc">O'qituvchisiz yoki ustoz bilan Milliy sertifikat hamda imtihonlarga 100% tayyorgarlik. Interaktiv testlar va manbalar bazasi.</p>
             </div>
             <div class="card">
                 <div class="card-icon">02</div>
-                <h3>Universitet Talabalari</h3>
-                <p>Arxiv hujjatlari, Birlamchi manbalar bazasi, tahliliy keyslar va ilmiy manbashunoslik bo'yicha chuqurlashtirilgan modullar.</p>
+                <h3 id="c2-title">Universitet Talabalari</h3>
+                <p id="c2-desc">Arxiv hujjatlari, birlamchi manbalar bazasi, tahliliy keyslar va ilmiy manbashunoslik bo'yicha chuqurlashtirilgan modullar.</p>
             </div>
             <div class="card">
                 <div class="card-icon">03</div>
-                <h3>O'qituvchilar va Professorlar</h3>
-                <p>Tasdiqlangan maqom bilan 50% imtiyoz, avtomatlashtirilgan baholash, silabuslar konstruktori va analitika paneli.</p>
+                <h3 id="c3-title">Professor-O'qituvchilar Tarkibi</h3>
+                <p id="c3-desc">Tasdiqlangan maqom bilan 50% imtiyoz, avtomatlashtirilgan baholash, silabuslar konstruktori va analitika paneli.</p>
             </div>
         </div>
     </section>
 
-    <!-- Academic Innovations -->
     <section class="innovations" id="innovatsiyalar">
         <div class="section-title">
-            <h2>Akademik va Texnologik Imkoniyatlar</h2>
-            <p>Ilmiy asoslangan innovatsiyalar orqali tarixdan chuqur bilim olish</p>
+            <h2 id="tech-title">Akademik va Texnologik Imkoniyatlar</h2>
+            <p id="tech-sub">Ilmiy asoslangan innovatsiyalar orqali tarixdan chuqur bilim olish</p>
         </div>
-
         <div class="grid">
             <div class="card">
                 <div class="card-icon">AI</div>
-                <h3>AI-Archivist (Aqlli Tarixchi)</h3>
-                <p>Ilmiy va arxiv hujjatlariga tayanib, savollarga manbasi va sahifasigacha aniq ko'rsatib javob beruvchi intellektual assistent.</p>
+                <h3 id="i1-title">AI-Archivist (Aqlli Tarixchi)</h3>
+                <p id="i1-desc">Ilmiy va arxiv hujjatlariga tayanib, savollarga manbasi va sahifasigacha aniq ko'rsatib javob beruvchi intellektual assistent.</p>
             </div>
             <div class="card">
                 <div class="card-icon">3D</div>
-                <h3>3D Virtual Muzey va Obidalar</h3>
-                <p>Arxeologik topilmalar hamda qadimgi obidalarni (Samarqand, Buxoro, Xiva) interaktiv 3D formatida tahlil qilish.</p>
+                <h3 id="i2-title">3D Virtual Muzey va Obidalar</h3>
+                <p id="i2-desc">Arxeologik topilmalar hamda qadimgi obidalarni (Samarqand, Buxoro, Xiva) interaktiv 3D formatida tahlil qilish.</p>
             </div>
             <div class="card">
                 <div class="card-icon">GIS</div>
-                <h3>Interaktiv Xronologik Xarita</h3>
-                <p>Yillar bo'yicha slayderni surish orqali davlatlar chegaralari va janglar dinamikasini real vaqt rejimida kuzatish.</p>
+                <h3 id="i3-title">Interaktiv Xronologik Xarita</h3>
+                <p id="i3-desc">Yillar bo'yicha slayderni surish orqali davlatlar chegaralari va janglar dinamikasini real vaqt rejimida kuzatish.</p>
             </div>
         </div>
     </section>
 
-    <!-- Certificate Section -->
     <section class="certificate" id="sertifikat">
         <div class="cert-box">
             <div class="cert-content">
-                <span class="cert-badge">Rasmiy Tamomlash Hujjati</span>
-                <h3>Academ-X Rasmiy Sertifikati</h3>
-                <p>Dasturni muvaffaqiyatli yakunlagan har bir foydalanuvchiga unikal QR-kodli rasmiy Academ-X Sertifikati topshiriladi. Ushbu sertifikat o'quvchining Milliy sertifikat darajasidagi bilimini tasdiqlaydi.</p>
+                <span class="cert-badge" id="cert-badge">Rasmiy Tamomlash Hujjati</span>
+                <h3 id="cert-title">Academ-X Rasmiy Sertifikati</h3>
+                <p id="cert-desc">Dasturni muvaffaqiyatli yakunlagan har bir foydalanuvchiga unikal QR-kodli rasmiy Academ-X Sertifikati topshiriladi. Ushbu sertifikat o'quvchining Milliy sertifikat darajasidagi bilimini tasdiqlaydi.</p>
             </div>
         </div>
     </section>
 
-    <!-- Pricing Section -->
     <section class="pricing" id="tariflar">
         <div class="section-title">
-            <h2>Shaffof Yillik Ta'riflar</h2>
-            <p>Cheksiz imkoniyatlar va sifatli ta'lim uchun yagona yillik obuna</p>
+            <h2 id="price-title">Shaffof Yillik Tariflar</h2>
+            <p id="price-sub">Cheksiz imkoniyatlar va sifatli ta'lim uchun yagona yillik obuna</p>
         </div>
-
         <div class="pricing-grid">
             <div class="price-card featured">
-                <h3>O'quvchi / Abituriyent</h3>
-                <div class="price-tag">1,000,000 <span>so'm / yil</span></div>
-                <p style="color: var(--text-muted); font-size: 14px;">To'liq 1 yillik cheksiz kirish</p>
+                <h3 id="p1-title">O'quvchi / Abituriyent</h3>
+                <div class="price-tag">1,000,000 <span id="p1-unit">so'm / yil</span></div>
+                <p style="color: var(--text-muted); font-size: 13px;" id="p1-sub">To'liq 1 yillik cheksiz kirish</p>
                 <ul class="price-features">
-                    <li>Milliy sertifikatga o'qituvchisiz mustaqil tayyorlanish</li>
-                    <li>AI-Archivist va 3D Muzeydan cheksiz foydalanish</li>
-                    <li>3D Xaritalar va Arxiv manbalari bazasi</li>
-                    <li>Kurs yakunida rasmiy QR-Sertifikat</li>
+                    <li id="p1-f1">Milliy sertifikatga o'qituvchisiz tayyorgarlik</li>
+                    <li id="p1-f2">AI-Archivist va 3D Muzeydan foydalanish</li>
+                    <li id="p1-f3">3D Xaritalar va Arxiv manbalari bazasi</li>
+                    <li id="p1-f4">Kurs yakunida rasmiy QR-Sertifikat</li>
                 </ul>
-                <a href="#" class="btn-primary" style="display: block; margin-top: 20px;">A'zo Bo'lish</a>
+                <a href="#" class="btn-primary" style="display: block; margin-top: 20px;" id="p1-btn">A'zo Bo'lish</a>
             </div>
-
             <div class="price-card">
-                <h3>O'qituvchi</h3>
-                <div class="price-tag">500,000 <span>so'm / yil</span></div>
-                <p style="color: #059669; font-weight: 600; font-size: 14px;">50% Maxsus Chegirma</p>
+                <h3 id="p2-title">O'qituvchi</h3>
+                <div class="price-tag">500,000 <span id="p2-unit">so'm / yil</span></div>
+                <p style="color: #059669; font-weight: 600; font-size: 13px;" id="p2-sub">50% Maxsus Chegirma</p>
                 <ul class="price-features">
-                    <li>O'qituvchilik maqomini tasdiqlash bilan</li>
-                    <li>O'quvchilar natijalarini kuzatish paneli</li>
-                    <li>Tayyor silabuslar va metodik qo'llanmalar</li>
-                    <li>Analitika va sertifikatlash vositalari</li>
+                    <li id="p2-f1">O'qituvchilik maqomini tasdiqlash bilan</li>
+                    <li id="p2-f2">O'quvchilar natijalarini kuzatish paneli</li>
+                    <li id="p2-f3">Tayyor silabuslar va metodik qo'llanmalar</li>
+                    <li id="p2-f4">Analitika va sertifikatlash vositalari</li>
                 </ul>
-                <a href="#" class="btn-secondary" style="display: block; color: var(--primary); border-color: var(--primary); margin-top: 20px;">Maqomni Tasdiqlash</a>
+                <a href="#" class="btn-secondary" style="display: block; color: var(--primary); border-color: var(--primary); margin-top: 20px;" id="p2-btn">Maqomni Tasdiqlash</a>
             </div>
         </div>
     </section>
 
     <footer>
-        <p>&copy; 2026 Academ-X. Oliy va o'rta maxsus ta'lim standartlariga moslashtirilgan prototip.</p>
+        <p id="footer-text">&copy; 2026 Academ-X. Oliy va o'rta maxsus ta'lim standartlariga moslashtirilgan prototip.</p>
     </footer>
+
+    <script>
+        const translations = {
+            uz: {
+                "nav-eco": "Ekotizim", "nav-tech": "Texnologiyalar", "nav-cert": "Sertifikat", "nav-price": "Tariflar",
+                "hero-badge": "Akkreditatsiyalangan Raqamli Tizim", "hero-title": "Tarixiy Manbalar va Ilmiy Metodologiya Platformasi",
+                "hero-desc": "Maktab ta'limidan oliy akademik tadqiqotlargacha bo'lgan davrni qamrab oluvchi, Milliy sertifikatga o'qituvchisiz ham mustaqil tayyorlanish imkonini beruvchi ta'lim ekotizimi.",
+                "btn-join": "A'zo Bo'lish", "btn-tech": "Texnologiyalar",
+                "eco-title": "Ko'p Darajali Ta'lim Ekotizimi", "eco-sub": "Har bir foydalanuvchi va abituriyent uchun moslashuvchan metodologiya",
+                "c1-title": "Abituriyentlar va O'quvchilar", "c1-desc": "O'qituvchisiz yoki ustoz bilan Milliy sertifikat hamda imtihonlarga 100% tayyorgarlik. Interaktiv testlar va manbalar bazasi.",
+                "c2-title": "Universitet Talabalari", "c2-desc": "Arxiv hujjatlari, birlamchi manbalar bazasi, tahliliy keyslar va ilmiy manbashunoslik bo'yicha chuqurlashtirilgan modullar.",
+                "c3-title": "Professor-O'qituvchilar Tarkibi", "c3-desc": "Tasdiqlangan maqom bilan 50% imtiyoz, avtomatlashtirilgan baholash, silabuslar konstruktori va analitika paneli.",
+                "tech-title": "Akademik va Texnologik Imkoniyatlar", "tech-sub": "Ilmiy asoslangan innovatsiyalar orqali tarixdan chuqur bilim olish",
+                "i1-title": "AI-Archivist (Aqlli Tarixchi)", "i1-desc": "Ilmiy va arxiv hujjatlariga tayanib, savollarga manbasi va sahifasigacha aniq ko'rsatib javob beruvchi intellektual assistent.",
+                "i2-title": "3D Virtual Muzey va Obidalar", "i2-desc": "Arxeologik topilmalar hamda qadimgi obidalarni (Samarqand, Buxoro, Xiva) interaktiv 3D formatida tahlil qilish.",
+                "i3-title": "Interaktiv Xronologik Xarita", "i3-desc": "Yillar bo'yicha slayderni surish orqali davlatlar chegaralari va janglar dinamikasini real vaqt rejimida kuzatish.",
+                "cert-badge": "Rasmiy Tamomlash Hujjati", "cert-title": "Academ-X Rasmiy Sertifikati", "cert-desc": "Dasturni muvaffaqiyatli yakunlagan har bir foydalanuvchiga unikal QR-kodli rasmiy Academ-X Sertifikati topshiriladi. Ushbu sertifikat o'quvchining Milliy sertifikat darajasidagi bilimini tasdiqlaydi.",
+                "price-title": "Shaffof Yillik Tariflar", "price-sub": "Cheksiz imkoniyatlar va sifatli ta'lim uchun yagona yillik obuna",
+                "p1-title": "O'quvchi / Abituriyent", "p1-unit": "so'm / yil", "p1-sub": "To'liq 1 yillik cheksiz kirish", "p1-f1": "Milliy sertifikatga o'qituvchisiz tayyorgarlik", "p1-f2": "AI-Archivist va 3D Muzeydan foydalanish", "p1-f3": "3D Xaritalar va Arxiv manbalari bazasi", "p1-f4": "Kurs yakunida rasmiy QR-Sertifikat", "p1-btn": "A'zo Bo'lish",
+                "p2-title": "O'qituvchi", "p2-unit": "so'm / yil", "p2-sub": "50% Maxsus Chegirma", "p2-f1": "O'qituvchilik maqomini tasdiqlash bilan", "p2-f2": "O'quvchilar natijalarini kuzatish paneli", "p2-f3": "Tayyor silabuslar va metodik qo'llanmalar", "p2-f4": "Analitika va sertifikatlash vositalari", "p2-btn": "Maqomni Tasdiqlash",
+                "footer-text": "© 2026 Academ-X. Oliy va o'rta maxsus ta'lim standartlariga moslashtirilgan prototip."
+            },
+            ru: {
+                "nav-eco": "Экосистема", "nav-tech": "Технологии", "nav-cert": "Сертификат", "nav-price": "Тарифы",
+                "hero-badge": "Аккредитованная Цифровая Система", "hero-title": "Платформа Исторических Источников и Научной Методологии",
+                "hero-desc": "Образовательная экосистема, охватывающая период от школьного образования до высших академических исследований, позволяющая готовиться к Национальному сертификату самостоятельно.",
+                "btn-join": "Присоединиться", "btn-tech": "Технологии",
+                "eco-title": "Многоуровневая Образовательная Экосистема", "eco-sub": "Гибкая методология для каждого пользователя и абитуриента",
+                "c1-title": "Абитуриенты и Учащиеся", "c1-desc": "100% подготовка к Национальному сертификату и экзаменам самостоятельно или с преподавателем. База интерактивных тестов и источников.",
+                "c2-title": "Студенты Университетов", "c2-desc": "Архивные документы, база первичных источников, аналитические кейсы и углубленные модули по источниковедению.",
+                "c3-title": "Профессорско-Преподавательский Состав", "c3-desc": "Льгота 50% с подтвержденным статусом, автоматизированное оценивание, конструктор силлабусов и панель аналитики.",
+                "tech-title": "Академические и Технологические Возможности", "tech-sub": "Глубокое изучение истории с помощью научно обоснованных инноваций",
+                "i1-title": "AI-Archivist (Умный Историк)", "i1-desc": "Интеллектуальный ассистент, отвечающий на вопросы со ссылками на научные и архивные документы вплоть до страницы.",
+                "i2-title": "3D Виртуальный Музей и Памятники", "i2-desc": "Интерактивный 3D-анализ археологических находок и древних памятников (Самарканд, Бухара, Хива).",
+                "i3-title": "Интерактивная Хронологическая Карта", "i3-desc": "Отслеживание границ государств и динамики сражений в реальном времени с помощью слайдера лет.",
+                "cert-badge": "Официальный Документ об Окончании", "cert-title": "Официальный Сертификат Academ-X", "cert-desc": "Каждому пользователю, успешно завершившему программу, выдается официальный сертификат Academ-X с уникальным QR-кодом.",
+                "price-title": "Прозрачные Годовые Тарифы", "price-sub": "Единая годовая подписка для неограниченных возможностей и качественного образования",
+                "p1-title": "Ученик / Абитуриент", "p1-unit": "сум / год", "p1-sub": "Полный 1 год безлимитного доступа", "p1-f1": "Подготовка к Нац. сертификату без репетитора", "p1-f2": "Использование AI-Archivist и 3D Музея", "p1-f3": "База 3D карт и архивных источников", "p1-f4": "Официальный QR-сертификат по окончании", "p1-btn": "Присоединиться",
+                "p2-title": "Преподаватель", "p2-unit": "сум / год", "p2-sub": "Специальная Скидка 50%", "p2-f1": "При подтверждении статуса учителя", "p2-f2": "Панель отслеживания результатов учащихся", "p2-f3": "Готовые силлабусы и методические пособия", "p2-f4": "Инструменты аналитики и сертификации", "p2-btn": "Подтвердить Статус",
+                "footer-text": "© 2026 Academ-X. Прототип, адаптированный под стандарты высшего и среднего специального образования."
+            },
+            en: {
+                "nav-eco": "Ecosystem", "nav-tech": "Technologies", "nav-cert": "Certificate", "nav-price": "Pricing",
+                "hero-badge": "Accredited Digital System", "hero-title": "Historical Sources and Scientific Methodology Platform",
+                "hero-desc": "An educational ecosystem covering school level to advanced academic research, enabling independent preparation for the National Certificate.",
+                "btn-join": "Get Started", "btn-tech": "Technologies",
+                "eco-title": "Multi-Level Educational Ecosystem", "eco-sub": "Flexible methodology for every user and applicant",
+                "c1-title": "Applicants and Students", "c1-desc": "100% preparation for National Certificates and exams independently or with a tutor. Interactive tests and resource database.",
+                "c2-title": "University Students", "c2-desc": "Archival documents, primary source databases, analytical cases, and advanced modules in source studies.",
+                "c3-title": "Professors & Educators", "c3-desc": "50% discount with verified status, automated assessment, syllabus builder, and analytics dashboard.",
+                "tech-title": "Academic and Technological Features", "tech-sub": "Deep historical learning through scientifically grounded innovations",
+                "i1-title": "AI-Archivist (Smart Historian)", "i1-desc": "An intelligent assistant that answers questions based on scientific and archival documents down to page citations.",
+                "i2-title": "3D Virtual Museum & Monuments", "i2-desc": "Interactive 3D analysis of archaeological finds and ancient monuments (Samarkand, Bukhara, Khiva).",
+                "i3-title": "Interactive Chronological Map", "i3-desc": "Track state borders and battle dynamics in real-time by dragging the timeline slider.",
+                "cert-badge": "Official Completion Document", "cert-title": "Official Academ-X Certificate", "cert-desc": "Every user who completes the program receives an official Academ-X Certificate with a unique QR code.",
+                "price-title": "Transparent Annual Pricing", "price-sub": "A single annual subscription for unlimited possibilities and quality education",
+                "p1-title": "Student / Applicant", "p1-unit": "UZS / year", "p1-sub": "Full 1-year unlimited access", "p1-f1": "Independent preparation for National Cert.", "p1-f2": "Unlimited access to AI-Archivist & 3D Museum", "p1-f3": "3D Maps and Archival Sources database", "p1-f4": "Official QR Certificate upon completion", "p1-btn": "Join Now",
+                "p2-title": "Teacher / Educator", "p2-unit": "UZS / year", "p2-sub": "50% Special Discount", "p2-f1": "With verified teaching status", "p2-f2": "Student performance tracking panel", "p2-f3": "Ready syllabi and methodological guides", "p2-f4": "Analytics and certification tools", "p2-btn": "Verify Status",
+                "footer-text": "© 2026 Academ-X. Prototype adapted to higher and vocational education standards."
+            }
+        };
+
+        function setLanguage(lang) {
+            document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+
+            for (let key in translations[lang]) {
+                const el = document.getElementById(key);
+                if (el) el.innerText = translations[lang][key];
+            }
+        }
+    </script>
 </body>
 </html>
