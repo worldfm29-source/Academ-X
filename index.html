@@ -42,7 +42,7 @@
         .btn-primary:hover { background: #B45309; }
         .btn-secondary { background: transparent; color: white; padding: 14px 32px; text-decoration: none; border-radius: 8px; font-weight: 600; border: 1px solid #475569; transition: 0.3s; }
 
-        .features, .pricing, .certificate, .innovations { padding: 80px 8%; max-width: 1300px; margin: 0 auto; }
+        .features, .pricing, .certificate, .innovations, .demo-quiz { padding: 80px 8%; max-width: 1300px; margin: 0 auto; }
         .section-title { text-align: center; margin-bottom: 50px; }
         .section-title h2 { font-family: 'Playfair Display', serif; font-size: 34px; color: var(--primary); margin-bottom: 10px; }
         .section-title p { color: var(--text-muted); font-size: 15px; }
@@ -53,6 +53,26 @@
         .card-icon { width: 45px; height: 45px; background: var(--accent-light); color: var(--accent); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 18px; font-weight: bold; margin-bottom: 18px; }
         .card h3 { font-size: 19px; color: var(--primary); margin-bottom: 10px; }
         .card p { color: var(--text-muted); font-size: 14px; line-height: 1.6; }
+
+        /* Demo Quiz Box */
+        .quiz-container { background: var(--card-bg); border: 1px solid var(--border); border-radius: 16px; padding: 40px; max-width: 800px; margin: 0 auto; box-shadow: 0 10px 25px rgba(0,0,0,0.03); }
+        .quiz-question { font-size: 18px; font-weight: 600; color: var(--primary); margin-bottom: 20px; }
+        .quiz-options { display: flex; flex-direction: column; gap: 12px; }
+        .quiz-opt { padding: 14px 20px; border: 1px solid var(--border); border-radius: 8px; background: var(--bg-light); cursor: pointer; transition: 0.3s; font-size: 15px; text-align: left; }
+        .quiz-opt:hover { border-color: var(--accent); background: var(--accent-light); }
+        .quiz-opt.correct { background: #DEF7EC; border-color: #31C48D; color: #03543F; font-weight: 600; }
+        .quiz-opt.incorrect { background: #FDE8E8; border-color: #F98080; color: #9B1C1C; }
+        #quiz-result { margin-top: 20px; font-weight: 600; text-align: center; }
+
+        /* Floating AI Widget */
+        .ai-widget { position: fixed; bottom: 30px; right: 30px; z-index: 2000; }
+        .ai-trigger { width: 60px; height: 60px; border-radius: 50%; background: var(--accent); color: white; border: none; font-weight: bold; font-size: 14px; cursor: pointer; box-shadow: 0 10px 25px rgba(217,119,6,0.4); display: flex; align-items: center; justify-content: center; transition: 0.3s; }
+        .ai-trigger:hover { transform: scale(1.05); }
+        .ai-box { display: none; position: absolute; bottom: 75px; right: 0; width: 340px; background: white; border: 1px solid var(--border); border-radius: 16px; box-shadow: 0 20px 40px rgba(0,0,0,0.15); overflow: hidden; }
+        .ai-box.active { display: block; }
+        .ai-header { background: var(--primary); color: white; padding: 15px 20px; font-weight: 600; font-size: 14px; display: flex; justify-content: space-between; }
+        .ai-body { padding: 20px; max-height: 250px; overflow-y: auto; font-size: 13px; color: var(--text-dark); background: #FAF9F6; }
+        .ai-msg { background: white; padding: 10px 14px; border-radius: 10px; border: 1px solid var(--border); margin-bottom: 10px; }
 
         .cert-box { background: linear-gradient(135deg, #1E293B 0%, #0F172A 100%); color: white; border-radius: 16px; padding: 45px; display: flex; align-items: center; gap: 30px; flex-wrap: wrap; }
         .cert-content h3 { font-family: 'Playfair Display', serif; font-size: 28px; margin-bottom: 12px; }
@@ -76,6 +96,7 @@
         <nav>
             <a href="#ekotizim" id="nav-eco">Ekotizim</a>
             <a href="#innovatsiyalar" id="nav-tech">Texnologiyalar</a>
+            <a href="#demo-test" id="nav-quiz">Demo Test</a>
             <a href="#sertifikat" id="nav-cert">Sertifikat</a>
             <a href="#tariflar" id="nav-price">Tariflar</a>
             <div class="lang-switch">
@@ -92,7 +113,7 @@
         <p id="hero-desc">Maktab ta'limidan oliy akademik tadqiqotlargacha bo'lgan davrni qamrab oluvchi, Milliy sertifikatga o'qituvchisiz ham mustaqil tayyorlanish imkonini beruvchi ta'lim ekotizimi.</p>
         <div class="cta-btns">
             <a href="#tariflar" class="btn-primary" id="btn-join">A'zo Bo'lish</a>
-            <a href="#innovatsiyalar" class="btn-secondary" id="btn-tech">Texnologiyalar</a>
+            <a href="#demo-test" class="btn-secondary" id="btn-quiz">Demo Testni Sinash</a>
         </div>
     </section>
 
@@ -117,6 +138,23 @@
                 <h3 id="c3-title">Professor-O'qituvchilar Tarkibi</h3>
                 <p id="c3-desc">Tasdiqlangan maqom bilan 50% imtiyoz, avtomatlashtirilgan baholash, silabuslar konstruktori va analitika paneli.</p>
             </div>
+        </div>
+    </section>
+
+    <!-- Interactive Demo Quiz -->
+    <section class="demo-quiz" id="demo-test">
+        <div class="section-title">
+            <h2 id="quiz-title">Milliy Sertifikat Demo Moduli</h2>
+            <p id="quiz-sub">Mustaqil bilimingizni sinab ko'ring va ilmiy tahlilni oling</p>
+        </div>
+        <div class="quiz-container">
+            <div class="quiz-question" id="quiz-q">Manbashunoslik bo'yicha "Buyuk Ipak Yo'li" atamasi ilk bor kim tomonidan ilmiy muomalaga kiritilgan?</div>
+            <div class="quiz-options">
+                <button class="quiz-opt" onclick="checkQuiz(this, false)">A) Klavixoi (1404-yil)</button>
+                <button class="quiz-opt" onclick="checkQuiz(this, true)">B) Ferdinand fon Rixthofen (1877-yil)</button>
+                <button class="quiz-opt" onclick="checkQuiz(this, false)">C) V.V. Bartold (1910-yil)</button>
+            </div>
+            <div id="quiz-result"></div>
         </div>
     </section>
 
@@ -187,68 +225,102 @@
         </div>
     </section>
 
+    <!-- Floating AI Widget -->
+    <div class="ai-widget">
+        <div class="ai-box" id="ai-box">
+            <div class="ai-header">
+                <span>AI-Archivist Bot</span>
+                <span style="cursor:pointer;" onclick="toggleAI()">✕</span>
+            </div>
+            <div class="ai-body">
+                <div class="ai-msg"><strong>AI:</strong> Assalomu alaykum! Men Academ-X Arxiv Assistentiman. Tarixiy manbalar va arxiv hujjatlari bo'yicha qanday savolingiz bor?</div>
+            </div>
+        </div>
+        <button class="ai-trigger" onclick="toggleAI()">AI 💬</button>
+    </div>
+
     <footer>
         <p id="footer-text">&copy; 2026 Academ-X. Oliy va o'rta maxsus ta'lim standartlariga moslashtirilgan prototip.</p>
     </footer>
 
     <script>
+        function toggleAI() {
+            document.getElementById('ai-box').classList.toggle('active');
+        }
+
+        function checkQuiz(btn, isCorrect) {
+            const opts = document.querySelectorAll('.quiz-opt');
+            opts.forEach(o => o.disabled = true);
+            const res = document.getElementById('quiz-result');
+            if(isCorrect) {
+                btn.classList.add('correct');
+                res.innerHTML = "<span style='color: #31C48D;'>To'g'ri javob! Manba: 'Seidenstraße' atamasi Rixthofen tomonidan 1877-yilda kiritilgan. (100% Akademik bilimsiz tayyorlov)</span>";
+            } else {
+                btn.classList.add('incorrect');
+                res.innerHTML = "<span style='color: #F98080;'>Noto'g'ri javob. To'g'ri javob: B) Ferdinand fon Rixthofen (1877-yil)</span>";
+            }
+        }
+
         const translations = {
             uz: {
-                "nav-eco": "Ekotizim", "nav-tech": "Texnologiyalar", "nav-cert": "Sertifikat", "nav-price": "Tariflar",
+                "nav-eco": "Ekotizim", "nav-tech": "Texnologiyalar", "nav-quiz": "Demo Test", "nav-cert": "Sertifikat", "nav-price": "Tariflar",
                 "hero-badge": "Akkreditatsiyalangan Raqamli Tizim", "hero-title": "Tarixiy Manbalar va Ilmiy Metodologiya Platformasi",
                 "hero-desc": "Maktab ta'limidan oliy akademik tadqiqotlargacha bo'lgan davrni qamrab oluvchi, Milliy sertifikatga o'qituvchisiz ham mustaqil tayyorlanish imkonini beruvchi ta'lim ekotizimi.",
-                "btn-join": "A'zo Bo'lish", "btn-tech": "Texnologiyalar",
+                "btn-join": "A'zo Bo'lish", "btn-quiz": "Demo Testni Sinash",
                 "eco-title": "Ko'p Darajali Ta'lim Ekotizimi", "eco-sub": "Har bir foydalanuvchi va abituriyent uchun moslashuvchan metodologiya",
                 "c1-title": "Abituriyentlar va O'quvchilar", "c1-desc": "O'qituvchisiz yoki ustoz bilan Milliy sertifikat hamda imtihonlarga 100% tayyorgarlik. Interaktiv testlar va manbalar bazasi.",
                 "c2-title": "Universitet Talabalari", "c2-desc": "Arxiv hujjatlari, birlamchi manbalar bazasi, tahliliy keyslar va ilmiy manbashunoslik bo'yicha chuqurlashtirilgan modullar.",
                 "c3-title": "Professor-O'qituvchilar Tarkibi", "c3-desc": "Tasdiqlangan maqom bilan 50% imtiyoz, avtomatlashtirilgan baholash, silabuslar konstruktori va analitika paneli.",
+                "quiz-title": "Milliy Sertifikat Demo Moduli", "quiz-sub": "Mustaqil bilimingizni sinab ko'ring va ilmiy tahlilni oling",
                 "tech-title": "Akademik va Texnologik Imkoniyatlar", "tech-sub": "Ilmiy asoslangan innovatsiyalar orqali tarixdan chuqur bilim olish",
                 "i1-title": "AI-Archivist (Aqlli Tarixchi)", "i1-desc": "Ilmiy va arxiv hujjatlariga tayanib, savollarga manbasi va sahifasigacha aniq ko'rsatib javob beruvchi intellektual assistent.",
                 "i2-title": "3D Virtual Muzey va Obidalar", "i2-desc": "Arxeologik topilmalar hamda qadimgi obidalarni (Samarqand, Buxoro, Xiva) interaktiv 3D formatida tahlil qilish.",
                 "i3-title": "Interaktiv Xronologik Xarita", "i3-desc": "Yillar bo'yicha slayderni surish orqali davlatlar chegaralari va janglar dinamikasini real vaqt rejimida kuzatish.",
-                "cert-badge": "Rasmiy Tamomlash Hujjati", "cert-title": "Academ-X Rasmiy Sertifikati", "cert-desc": "Dasturni muvaffaqiyatli yakunlagan har bir foydalanuvchiga unikal QR-kodli rasmiy Academ-X Sertifikati topshiriladi. Ushbu sertifikat o'quvchining Milliy sertifikat darajasidagi bilimini tasdiqlaydi.",
+                "cert-badge": "Rasmiy Tamomlash Hujjati", "cert-title": "Academ-X Rasmiy Sertifikati", "cert-desc": "Dasturni muvaffaqiyatli yakunlagan har bir foydalanuvchiga unikal QR-kodli rasmiy Academ-X Sertifikati topshiriladi.",
                 "price-title": "Shaffof Yillik Tariflar", "price-sub": "Cheksiz imkoniyatlar va sifatli ta'lim uchun yagona yillik obuna",
                 "p1-title": "O'quvchi / Abituriyent", "p1-unit": "so'm / yil", "p1-sub": "To'liq 1 yillik cheksiz kirish", "p1-f1": "Milliy sertifikatga o'qituvchisiz tayyorgarlik", "p1-f2": "AI-Archivist va 3D Muzeydan foydalanish", "p1-f3": "3D Xaritalar va Arxiv manbalari bazasi", "p1-f4": "Kurs yakunida rasmiy QR-Sertifikat", "p1-btn": "A'zo Bo'lish",
                 "p2-title": "O'qituvchi", "p2-unit": "so'm / yil", "p2-sub": "50% Maxsus Chegirma", "p2-f1": "O'qituvchilik maqomini tasdiqlash bilan", "p2-f2": "O'quvchilar natijalarini kuzatish paneli", "p2-f3": "Tayyor silabuslar va metodik qo'llanmalar", "p2-f4": "Analitika va sertifikatlash vositalari", "p2-btn": "Maqomni Tasdiqlash",
                 "footer-text": "© 2026 Academ-X. Oliy va o'rta maxsus ta'lim standartlariga moslashtirilgan prototip."
             },
             ru: {
-                "nav-eco": "Экосистема", "nav-tech": "Технологии", "nav-cert": "Сертификат", "nav-price": "Тарифы",
+                "nav-eco": "Экосистема", "nav-tech": "Технологии", "nav-quiz": "Демо Тест", "nav-cert": "Сертификат", "nav-price": "Тарифы",
                 "hero-badge": "Аккредитованная Цифровая Система", "hero-title": "Платформа Исторических Источников и Научной Методологии",
-                "hero-desc": "Образовательная экосистема, охватывающая период от школьного образования до высших академических исследований, позволяющая готовиться к Национальному сертификату самостоятельно.",
-                "btn-join": "Присоединиться", "btn-tech": "Технологии",
-                "eco-title": "Многоуровневая Образовательная Экосистема", "eco-sub": "Гибкая методология для каждого пользователя и абитуриента",
-                "c1-title": "Абитуриенты и Учащиеся", "c1-desc": "100% подготовка к Национальному сертификату и экзаменам самостоятельно или с преподавателем. База интерактивных тестов и источников.",
-                "c2-title": "Студенты Университетов", "c2-desc": "Архивные документы, база первичных источников, аналитические кейсы и углубленные модули по источниковедению.",
-                "c3-title": "Профессорско-Преподавательский Состав", "c3-desc": "Льгота 50% с подтвержденным статусом, автоматизированное оценивание, конструктор силлабусов и панель аналитики.",
-                "tech-title": "Академические и Технологические Возможности", "tech-sub": "Глубокое изучение истории с помощью научно обоснованных инноваций",
-                "i1-title": "AI-Archivist (Умный Историк)", "i1-desc": "Интеллектуальный ассистент, отвечающий на вопросы со ссылками на научные и архивные документы вплоть до страницы.",
-                "i2-title": "3D Виртуальный Музей и Памятники", "i2-desc": "Интерактивный 3D-анализ археологических находок и древних памятников (Самарканд, Бухара, Хива).",
-                "i3-title": "Интерактивная Хронологическая Карта", "i3-desc": "Отслеживание границ государств и динамики сражений в реальном времени с помощью слайдера лет.",
-                "cert-badge": "Официальный Документ об Окончании", "cert-title": "Официальный Сертификат Academ-X", "cert-desc": "Каждому пользователю, успешно завершившему программу, выдается официальный сертификат Academ-X с уникальным QR-кодом.",
-                "price-title": "Прозрачные Годовые Тарифы", "price-sub": "Единая годовая подписка для неограниченных возможностей и качественного образования",
-                "p1-title": "Ученик / Абитуриент", "p1-unit": "сум / год", "p1-sub": "Полный 1 год безлимитного доступа", "p1-f1": "Подготовка к Нац. сертификату без репетитора", "p1-f2": "Использование AI-Archivist и 3D Музея", "p1-f3": "База 3D карт и архивных источников", "p1-f4": "Официальный QR-сертификат по окончании", "p1-btn": "Присоединиться",
-                "p2-title": "Преподаватель", "p2-unit": "сум / год", "p2-sub": "Специальная Скидка 50%", "p2-f1": "При подтверждении статуса учителя", "p2-f2": "Панель отслеживания результатов учащихся", "p2-f3": "Готовые силлабусы и методические пособия", "p2-f4": "Инструменты аналитики и сертификации", "p2-btn": "Подтвердить Статус",
-                "footer-text": "© 2026 Academ-X. Прототип, адаптированный под стандарты высшего и среднего специального образования."
+                "hero-desc": "Образовательная экосистема, позволяющая готовиться к Национальному сертификату самостоятельно.",
+                "btn-join": "Присоединиться", "btn-quiz": "Пройти Демо Тест",
+                "eco-title": "Многоуровневая Образовательная Экосистема", "eco-sub": "Гибкая методология для каждого пользователя",
+                "c1-title": "Абитуриенты и Учащиеся", "c1-desc": "100% подготовка к Национальному сертификату самостоятельно или с репетитором.",
+                "c2-title": "Студенты Университетов", "c2-desc": "Архивные документы, база источников и углубленные модули по источниковедению.",
+                "c3-title": "Профессорско-Преподавательский Состав", "c3-desc": "Льгота 50% с подтвержденным статусом, автоматизированное оценивание и панель аналитики.",
+                "quiz-title": "Демо Модуль Национального Сертификата", "quiz-sub": "Проверьте свои знания самостоятельно",
+                "tech-title": "Академические и Технологические Возможности", "tech-sub": "Глубокое изучение истории",
+                "i1-title": "AI-Archivist (Умный Историк)", "i1-desc": "Интеллектуальный ассистент, отвечающий со ссылками на документы.",
+                "i2-title": "3D Виртуальный Музей", "i2-desc": "Интерактивный 3D-анализ памятников.",
+                "i3-title": "Интерактивная Карта", "i3-desc": "Отслеживание границ и сражений в реальном времени.",
+                "cert-badge": "Официальный Документ", "cert-title": "Официальный Сертификат Academ-X", "cert-desc": "Официальный сертификат Academ-X с уникальным QR-кодом.",
+                "price-title": "Прозрачные Годовые Тарифы", "price-sub": "Единая годовая подписка",
+                "p1-title": "Ученик / Абитуриент", "p1-unit": "сум / год", "p1-sub": "Полный 1 год доступа", "p1-f1": "Подготовка к Нац. сертификату", "p1-f2": "AI-Archivist и 3D Музей", "p1-f3": "3D карты и источники", "p1-f4": "Официальный QR-сертификат", "p1-btn": "Присоединиться",
+                "p2-title": "Преподаватель", "p2-unit": "сум / год", "p2-sub": "Скидка 50%", "p2-f1": "С подтверждением статуса", "p2-f2": "Панель результатов учащихся", "p2-f3": "Готовые силлабусы", "p2-f4": "Инструменты аналитики", "p2-btn": "Подтвердить Статус",
+                "footer-text": "© 2026 Academ-X. Прототип образовательной системы."
             },
             en: {
-                "nav-eco": "Ecosystem", "nav-tech": "Technologies", "nav-cert": "Certificate", "nav-price": "Pricing",
+                "nav-eco": "Ecosystem", "nav-tech": "Technologies", "nav-quiz": "Demo Quiz", "nav-cert": "Certificate", "nav-price": "Pricing",
                 "hero-badge": "Accredited Digital System", "hero-title": "Historical Sources and Scientific Methodology Platform",
-                "hero-desc": "An educational ecosystem covering school level to advanced academic research, enabling independent preparation for the National Certificate.",
-                "btn-join": "Get Started", "btn-tech": "Technologies",
-                "eco-title": "Multi-Level Educational Ecosystem", "eco-sub": "Flexible methodology for every user and applicant",
-                "c1-title": "Applicants and Students", "c1-desc": "100% preparation for National Certificates and exams independently or with a tutor. Interactive tests and resource database.",
-                "c2-title": "University Students", "c2-desc": "Archival documents, primary source databases, analytical cases, and advanced modules in source studies.",
-                "c3-title": "Professors & Educators", "c3-desc": "50% discount with verified status, automated assessment, syllabus builder, and analytics dashboard.",
-                "tech-title": "Academic and Technological Features", "tech-sub": "Deep historical learning through scientifically grounded innovations",
-                "i1-title": "AI-Archivist (Smart Historian)", "i1-desc": "An intelligent assistant that answers questions based on scientific and archival documents down to page citations.",
-                "i2-title": "3D Virtual Museum & Monuments", "i2-desc": "Interactive 3D analysis of archaeological finds and ancient monuments (Samarkand, Bukhara, Khiva).",
-                "i3-title": "Interactive Chronological Map", "i3-desc": "Track state borders and battle dynamics in real-time by dragging the timeline slider.",
-                "cert-badge": "Official Completion Document", "cert-title": "Official Academ-X Certificate", "cert-desc": "Every user who completes the program receives an official Academ-X Certificate with a unique QR code.",
-                "price-title": "Transparent Annual Pricing", "price-sub": "A single annual subscription for unlimited possibilities and quality education",
-                "p1-title": "Student / Applicant", "p1-unit": "UZS / year", "p1-sub": "Full 1-year unlimited access", "p1-f1": "Independent preparation for National Cert.", "p1-f2": "Unlimited access to AI-Archivist & 3D Museum", "p1-f3": "3D Maps and Archival Sources database", "p1-f4": "Official QR Certificate upon completion", "p1-btn": "Join Now",
-                "p2-title": "Teacher / Educator", "p2-unit": "UZS / year", "p2-sub": "50% Special Discount", "p2-f1": "With verified teaching status", "p2-f2": "Student performance tracking panel", "p2-f3": "Ready syllabi and methodological guides", "p2-f4": "Analytics and certification tools", "p2-btn": "Verify Status",
-                "footer-text": "© 2026 Academ-X. Prototype adapted to higher and vocational education standards."
+                "hero-desc": "An educational ecosystem enabling independent preparation for the National Certificate.",
+                "btn-join": "Get Started", "btn-quiz": "Try Demo Quiz",
+                "eco-title": "Multi-Level Educational Ecosystem", "eco-sub": "Flexible methodology for every user",
+                "c1-title": "Applicants and Students", "c1-desc": "100% preparation for National Certificates independently or with a tutor.",
+                "c2-title": "University Students", "c2-desc": "Archival documents and advanced modules in source studies.",
+                "c3-title": "Professors & Educators", "c3-desc": "50% discount with verified status, automated assessment, and analytics dashboard.",
+                "quiz-title": "National Certificate Demo Module", "quiz-sub": "Test your knowledge independently",
+                "tech-title": "Academic Features", "tech-sub": "Deep historical learning through innovations",
+                "i1-title": "AI-Archivist (Smart Historian)", "i1-desc": "An intelligent assistant answering with archival citations.",
+                "i2-title": "3D Virtual Museum", "i2-desc": "Interactive 3D analysis of ancient monuments.",
+                "i3-title": "Interactive Chronological Map", "i3-desc": "Track state borders in real-time.",
+                "cert-badge": "Official Document", "cert-title": "Official Academ-X Certificate", "cert-desc": "Official Academ-X Certificate with a unique QR code.",
+                "price-title": "Annual Pricing", "price-sub": "Unlimited annual subscription",
+                "p1-title": "Student / Applicant", "p1-unit": "UZS / year", "p1-sub": "Full 1-year unlimited access", "p1-f1": "Independent preparation for National Cert.", "p1-f2": "Access to AI-Archivist & 3D Museum", "p1-f3": "3D Maps database", "p1-f4": "Official QR Certificate", "p1-btn": "Join Now",
+                "p2-title": "Teacher / Educator", "p2-unit": "UZS / year", "p2-sub": "50% Special Discount", "p2-f1": "With verified status", "p2-f2": "Student tracking panel", "p2-f3": "Ready syllabi", "p2-f4": "Analytics tools", "p2-btn": "Verify Status",
+                "footer-text": "© 2026 Academ-X. Educational platform prototype."
             }
         };
 
