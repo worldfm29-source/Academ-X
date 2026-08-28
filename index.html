@@ -23,7 +23,7 @@
         header { background: rgba(15, 23, 42, 0.95); backdrop-filter: blur(10px); position: fixed; width: 100%; top: 0; z-index: 1000; padding: 18px 8%; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(255,255,255,0.1); }
         .logo { font-family: 'Playfair Display', serif; font-size: 26px; font-weight: 700; color: #FFF; letter-spacing: 1px; }
         .logo span { color: var(--accent); }
-        nav a { color: #CBD5E1; text-decoration: none; margin-left: 30px; font-size: 15px; font-weight: 500; transition: 0.3s; }
+        nav a { color: #CBD5E1; text-decoration: none; margin-left: 25px; font-size: 15px; font-weight: 500; transition: 0.3s; }
         nav a:hover { color: var(--accent); }
         
         .hero { margin-top: 75px; background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%); color: white; padding: 120px 8% 100px; text-align: center; position: relative; overflow: hidden; }
@@ -38,7 +38,7 @@
         .btn-secondary { background: transparent; color: white; padding: 14px 32px; text-decoration: none; border-radius: 8px; font-weight: 600; border: 1px solid #475569; transition: 0.3s; }
         .btn-secondary:hover { background: rgba(255,255,255,0.05); }
 
-        .features { padding: 90px 8%; max-width: 1300px; margin: 0 auto; }
+        .features, .pricing, .certificate, .innovations { padding: 90px 8%; max-width: 1300px; margin: 0 auto; }
         .section-title { text-align: center; margin-bottom: 60px; }
         .section-title h2 { font-family: 'Playfair Display', serif; font-size: 36px; color: var(--primary); margin-bottom: 10px; }
         .section-title p { color: var(--text-muted); font-size: 16px; }
@@ -46,9 +46,25 @@
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
         .card { background: var(--card-bg); padding: 40px 30px; border-radius: 12px; border: 1px solid var(--border); transition: 0.3s; position: relative; }
         .card:hover { transform: translateY(-5px); box-shadow: 0 20px 25px -5px rgba(0,0,0,0.05); border-color: var(--accent); }
-        .card-icon { width: 50px; height: 50px; background: var(--accent-light); color: var(--accent); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 22px; font-weight: bold; margin-bottom: 20px; }
+        .card-icon { width: 50px; height: 50px; background: var(--accent-light); color: var(--accent); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 20px; font-weight: bold; margin-bottom: 20px; }
         .card h3 { font-size: 20px; color: var(--primary); margin-bottom: 12px; }
         .card p { color: var(--text-muted); font-size: 15px; line-height: 1.7; }
+
+        /* Certificate Banner */
+        .cert-box { background: linear-gradient(135deg, #1E293B 0%, #0F172A 100%); color: white; border-radius: 16px; padding: 50px; display: flex; align-items: center; gap: 40px; flex-wrap: wrap; }
+        .cert-content { flex: 1; min-width: 300px; }
+        .cert-content h3 { font-family: 'Playfair Display', serif; font-size: 30px; margin-bottom: 15px; color: #FFF; }
+        .cert-badge { background: var(--accent); color: white; padding: 4px 12px; border-radius: 6px; font-size: 12px; font-weight: 700; text-transform: uppercase; margin-bottom: 15px; display: inline-block; }
+
+        /* Pricing Section */
+        .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; max-width: 900px; margin: 0 auto; }
+        .price-card { background: var(--card-bg); border: 2px solid var(--border); border-radius: 16px; padding: 40px 30px; text-align: center; position: relative; transition: 0.3s; }
+        .price-card.featured { border-color: var(--accent); box-shadow: 0 10px 30px rgba(217,119,6,0.15); }
+        .price-tag { font-size: 38px; font-weight: 800; color: var(--primary); margin: 20px 0 10px; }
+        .price-tag span { font-size: 16px; color: var(--text-muted); font-weight: 400; }
+        .price-features { list-style: none; margin: 25px 0; text-align: left; }
+        .price-features li { padding: 10px 0; border-bottom: 1px dashed var(--border); color: var(--text-dark); font-size: 15px; }
+        .price-features li::before { content: "✓ "; color: var(--accent); font-weight: bold; }
 
         footer { background: var(--primary); color: #64748B; text-align: center; padding: 30px 8%; border-top: 1px solid rgba(255,255,255,0.05); font-size: 14px; }
     </style>
@@ -57,34 +73,34 @@
     <header>
         <div class="logo">Academ<span>-X</span></div>
         <nav>
-            <a href="#">Akademik Tizim</a>
-            <a href="#">Tadqiqotlar</a>
-            <a href="#">O'qituvchilarga</a>
-            <a href="#">Kutubxona</a>
+            <a href="#ekotizim">Ekotizim</a>
+            <a href="#innovatsiyalar">AI va 3D Texnologiyalar</a>
+            <a href="#sertifikat">Sertifikat</a>
+            <a href="#tariflar">Tariflar</a>
         </nav>
     </header>
 
     <section class="hero">
         <div class="badge">Akkreditatsiyalangan Raqamli Tizim</div>
         <h1>Tarixiy Manbalar va Ilmiy Metodologiya Platformasi</h1>
-        <p>Maktab ta'limidan oliy akademik tadqiqotlargacha bo'lgan davrni qamrab oluvchi, sun'iy intellekt va interaktiv xronologiya bilan boyitilgan ta'lim muhiti.</p>
+        <p>Maktab ta'limidan oliy akademik tadqiqotlargacha bo'lgan davrni qamrab oluvchi, Milliy sertifikatga o'qituvchisiz ham mustaqil tayyorlanish imkonini beruvchi ta'lim ekotizimi.</p>
         <div class="cta-btns">
-            <a href="#" class="btn-primary">Tizimga Kirish</a>
-            <a href="#" class="btn-secondary">Konsepsiya Bilan Tanishish</a>
+            <a href="#tariflar" class="btn-primary">A'zo Bo'lish</a>
+            <a href="#innovatsiyalar" class="btn-secondary">Texnologiyalar</a>
         </div>
     </section>
 
-    <section class="features">
+    <section class="features" id="ekotizim">
         <div class="section-title">
             <h2>Ko'p Darajali Ta'lim Ekotizimi</h2>
-            <p>Har bir bosqich foydalanuvchisi uchun ilmiy va metodik moslashuvchanlik</p>
+            <p>Har bir foydalanuvchi va abituriyent uchun moslashuvchan metodologiya</p>
         </div>
 
         <div class="grid">
             <div class="card">
                 <div class="card-icon">01</div>
-                <h3>Maktab va Akademik Litseylar</h3>
-                <p>Interaktiv 3D xaritalar, ketma-ket xronologik xarita va geymifikatsiya orqali poydevor bilimlarni shakllantirish moduli.</p>
+                <h3>Abituriyentlar va O'quvchilar</h3>
+                <p>O'qituvchisiz yoki ustoz bilan Milliy sertifikat va imtihonlarga 100% tayyorgarlik. Interaktiv testlar va manbalar bazasi.</p>
             </div>
             <div class="card">
                 <div class="card-icon">02</div>
@@ -93,8 +109,81 @@
             </div>
             <div class="card">
                 <div class="card-icon">03</div>
-                <h3>Professorsko-prepodavatelskiy Sostav</h3>
-                <p>Silabuslar konstruktori, avtomatlashtirilgan baholash, talabalar ilmiy ishlarini nazorat qilish va analitika paneli.</p>
+                <h3>O'qituvchilar va Professorlar</h3>
+                <p>Tasdiqlangan maqom bilan 50% imtiyoz, avtomatlashtirilgan baholash, silabuslar konstruktori va analitika paneli.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Academic Innovations -->
+    <section class="innovations" id="innovatsiyalar">
+        <div class="section-title">
+            <h2>Akademik va Texnologik Imkoniyatlar</h2>
+            <p>Ilmiy asoslangan innovatsiyalar orqali tarixdan chuqur bilim olish</p>
+        </div>
+
+        <div class="grid">
+            <div class="card">
+                <div class="card-icon">AI</div>
+                <h3>AI-Archivist (Aqlli Tarixchi)</h3>
+                <p>Ilmiy va arxiv hujjatlariga tayanib, savollarga manbasi va sahifasigacha aniq ko'rsatib javob beruvchi intellektual assistent.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">3D</div>
+                <h3>3D Virtual Muzey va Obidalar</h3>
+                <p>Arxeologik topilmalar hamda qadimgi obidalarni (Samarqand, Buxoro, Xiva) interaktiv 3D formatida tahlil qilish.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">GIS</div>
+                <h3>Interaktiv Xronologik Xarita</h3>
+                <p>Yillar bo'yicha slayderni surish orqali davlatlar chegaralari va janglar dinamikasini real vaqt rejimida kuzatish.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certificate Section -->
+    <section class="certificate" id="sertifikat">
+        <div class="cert-box">
+            <div class="cert-content">
+                <span class="cert-badge">Rasmiy Tamomlash Hujjati</span>
+                <h3>Academ-X Rasmiy Sertifikati</h3>
+                <p>Dasturni muvaffaqiyatli yakunlagan har bir foydalanuvchiga unikal QR-kodli rasmiy Academ-X Sertifikati topshiriladi. Ushbu sertifikat o'quvchining Milliy sertifikat darajasidagi bilimini tasdiqlaydi.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="pricing" id="tariflar">
+        <div class="section-title">
+            <h2>Shaffof Yillik Ta'riflar</h2>
+            <p>Cheksiz imkoniyatlar va sifatli ta'lim uchun yagona yillik obuna</p>
+        </div>
+
+        <div class="pricing-grid">
+            <div class="price-card featured">
+                <h3>O'quvchi / Abituriyent</h3>
+                <div class="price-tag">1,000,000 <span>so'm / yil</span></div>
+                <p style="color: var(--text-muted); font-size: 14px;">To'liq 1 yillik cheksiz kirish</p>
+                <ul class="price-features">
+                    <li>Milliy sertifikatga o'qituvchisiz mustaqil tayyorlanish</li>
+                    <li>AI-Archivist va 3D Muzeydan cheksiz foydalanish</li>
+                    <li>3D Xaritalar va Arxiv manbalari bazasi</li>
+                    <li>Kurs yakunida rasmiy QR-Sertifikat</li>
+                </ul>
+                <a href="#" class="btn-primary" style="display: block; margin-top: 20px;">A'zo Bo'lish</a>
+            </div>
+
+            <div class="price-card">
+                <h3>O'qituvchi</h3>
+                <div class="price-tag">500,000 <span>so'm / yil</span></div>
+                <p style="color: #059669; font-weight: 600; font-size: 14px;">50% Maxsus Chegirma</p>
+                <ul class="price-features">
+                    <li>O'qituvchilik maqomini tasdiqlash bilan</li>
+                    <li>O'quvchilar natijalarini kuzatish paneli</li>
+                    <li>Tayyor silabuslar va metodik qo'llanmalar</li>
+                    <li>Analitika va sertifikatlash vositalari</li>
+                </ul>
+                <a href="#" class="btn-secondary" style="display: block; color: var(--primary); border-color: var(--primary); margin-top: 20px;">Maqomni Tasdiqlash</a>
             </div>
         </div>
     </section>
